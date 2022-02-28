@@ -1,0 +1,14 @@
+<div class="containter">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <%= simple_form_for @pet do |f| %>
+        <%= f.input :name %>
+        <%= f.input :category, collection: ["Dogs", "Cats", "Fish", "Reptiles", "Others"]  %>
+        <%= f.input :location %>
+        <%= f.input :price %>
+        <%= f.input :description %>
+        <%= f.submit "Submit pet", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
