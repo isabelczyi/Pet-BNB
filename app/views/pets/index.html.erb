@@ -1,6 +1,24 @@
 <h1>All the pets</h1>
-<% @pets.each do |pet| %>
-  Name: <%= pet.name  %><br>
-  Location: <%= pet.location %><br>
-  Price: $<%= number_with_precision(pet.price, precision: 2) %> per hour <br>
-<% end %>
+<div class="container mt-3">
+  <h1>Animals to rent</h1>
+
+  <div class="d-flex justify-content-evenly">
+    <% @pets.each do |pet| %>
+
+    <div class="card" style="width: 18rem;">
+      <a href="/pets/<%= pet.id %>">
+      <img src="https://juniperpets.com/wp-content/uploads/2021/07/why-your-blue-heeler-follows-you-everywhere.jpg" class="card-img-top" alt="...">
+      </a>
+      <div class="card-body">
+      <div class="d-flex justify-content-between">
+        <h5 class="card-title"><%= pet.name %></h5>
+        <h5 class="card-title">$<%= number_with_precision(pet.price, precision: 2) %>/hr</h5>
+        </div>
+        <p class="card-text"><%= pet.location %></p>
+        <a href="#" class="btn btn-primary">Book now</a>
+      </div>
+    </div>
+
+    <% end %>
+  </div>
+</div>
