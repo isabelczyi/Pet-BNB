@@ -1,0 +1,6 @@
+<h1>All the pets</h1>
+<% @pets.each do |pet| %>
+  Name: <%= pet.name  %><br>
+  Location: <%= pet.location %><br>
+  Price: $<%= number_with_precision(pet.price, precision: 2) %> per hour <br>
+<% end %>
