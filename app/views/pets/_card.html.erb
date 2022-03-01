@@ -1,11 +1,5 @@
-<div class="mt-5 text-align:entre">
-<h1 >Welcome to your profile - <%=current_user.first_name%></h1>
-</div>
-
-<h1>Your pets</h1>
-<div class="container mt-3">
-  <div class="d-flex justify-content-evenly">
-    <% current_user.pets.each do |pet| %>
+<div class="d-flex justify-content-evenly">
+    <% @pets.each do |pet| %>
 
     <div class="card" style="width: 18rem;">
       <a href="/pets/<%= pet.id %>">
@@ -20,17 +14,6 @@
         <a href="#" class="btn btn-primary">Book now</a>
       </div>
     </div>
+
     <% end %>
   </div>
-</div>
-
- <%= link_to "Search for a pet", pets_path, class: "btn btn-success" %>
- <%= link_to "Add a new pet", new_pet_path, class: "btn btn-success" %>
-
-<h1>View your booking</h1>
-<%# <div class="container mt-3">
-   <div class="d-flex justify-content-evenly">
-     <% current_user.booking.each do |booking| %>
-    <%# </div>
-  </div>
-</div> %>

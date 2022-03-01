@@ -1,24 +1,19 @@
 <h1>All the pets</h1>
 <div class="container mt-3">
-  <h1>Animals to rent</h1>
+  <h1>All pets</h1>
 
-  <div class="d-flex justify-content-evenly">
-    <% @pets.each do |pet| %>
+  <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    Categories
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <li><a class="dropdown-item" href="/pets/dog">Dogs</a></li>
+    <li><a class="dropdown-item" href="/pets/cat">Cats</a></li>
+    <li><a class="dropdown-item" href="/pets/fish">Fish</a></li>
+    <li><a class="dropdown-item" href="/pets/reptile">Reptiles</a></li>
+    <li><a class="dropdown-item" href="/pets/others">Others</a></li>
+  </ul>
+</div>
+  <%= render 'card' %>
 
-    <div class="card" style="width: 18rem;">
-      <a href="/pets/<%= pet.id %>">
-      <img src="https://juniperpets.com/wp-content/uploads/2021/07/why-your-blue-heeler-follows-you-everywhere.jpg" class="card-img-top" alt="...">
-      </a>
-      <div class="card-body">
-      <div class="d-flex justify-content-between">
-        <h5 class="card-title"><%= pet.name %></h5>
-        <h5 class="card-title">$<%= number_with_precision(pet.price, precision: 2) %>/hr</h5>
-        </div>
-        <p class="card-text"><%= pet.location %></p>
-        <a href="#" class="btn btn-primary">Book now</a>
-      </div>
-    </div>
-
-    <% end %>
-  </div>
 </div>
