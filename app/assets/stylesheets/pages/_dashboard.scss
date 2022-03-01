@@ -1,0 +1,8 @@
+.your-pets-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+  flex-grow: 1;
+  padding: 16px;
+  width: 400px;
+}
