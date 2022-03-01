@@ -9,6 +9,26 @@ class PetsController < ApplicationController
     @pet = Pet.new
   end
 
+  def dog
+    @pets = Pet.where("category = 'Dogs'")
+  end
+
+  def cat
+    @pets = Pet.where("category = 'Cats'")
+  end
+
+  def fish
+    @pets = Pet.where("category = 'Fish'")
+  end
+
+  def reptile
+    @pets = Pet.where("category = 'Reptiles'")
+  end
+
+  def others
+    @pets = Pet.where("category = 'Others'")
+  end
+
   def create
     @pet = Pet.new(pet_params)
     @pet.user = current_user
