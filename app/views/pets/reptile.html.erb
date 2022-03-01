@@ -2,6 +2,7 @@
   <h1>Reptiles</h1>
 
   <div class="dropdown">
+    <div class="d-flex justify-content-between">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
       Categories
     </button>
@@ -11,9 +12,10 @@
       <li><a class="dropdown-item" href="/pets/fish">Fish</a></li>
       <li><a class="dropdown-item" href="/pets/others">Others</a></li>
     </ul>
+    <%= link_to "Back to all pets", pets_path, class: "btn btn-secondary" %>
+    </div>
   </div>
 
-  <%= link_to "Back to all pets", pets_path %>
 
   <%= render 'card' %>
 
