@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :pets, only: [:index, :new, :create, :show]
+  resources :bookings, only: [:index, :show, :new, :create, :destroy]
 end
