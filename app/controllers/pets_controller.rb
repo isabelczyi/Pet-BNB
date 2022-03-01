@@ -1,5 +1,5 @@
 class PetsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: [:index, :dog, :cat, :fish, :reptile, :others]
 
   def index
     @pets = Pet.all
