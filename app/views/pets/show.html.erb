@@ -1,1 +1,19 @@
-<h1><%= @pet.name%></h1>
+<div style = "container; margin-top: 50px;">
+  <div class="col d-flex justify-content-center">
+    <div class="card" style="width: 20rem;">
+      <img class="card-img-top" src="https://juniperpets.com/wp-content/uploads/2021/07/why-your-blue-heeler-follows-you-everywhere.jpg" class="card-img-top" alt="Card image cap">
+        <div class="card-body" style = "text-align: center;">
+          <h5 class="card-title">Name: <%= @pet.name%></h5>
+          <p class="card-text"> Location: <%=@pet.location %></p>
+          <p class="card-text"> Description: <%=@pet.description %></p>
+          <p class="card-text"> Category: <%=@pet.category%></p>
+          <p class="card-text"> Price: $<%=number_with_precision(@pet.price, precision: 2) %>/hr</p>
+          <% if @pet.user == current_user %>
+            <a href="#" class="btn btn-outline-info">Edit</a>
+            <a href="#" class="btn btn-outline-info">Delete</a>
+          <% end %>
+          <a href="#" class="btn btn-outline-info">Book now</a>
+        </div>
+    </div>
+  </div>
+</div>
