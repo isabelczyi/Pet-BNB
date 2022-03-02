@@ -1,8 +1,23 @@
-.your-pets-list {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 16px;
-  flex-grow: 1;
-  padding: 16px;
-  width: 400px;
+.container {
+  background-color: #fff9f0;
+  width: 800px;
+  padding: 0px 15px 25px 15px;
+}
+
+.btns {
+  height: 80px;
+  align-items: right;
+  margin-top: 5px;
+}
+
+.cards {
+  border: none;
+}
+
+.card-body p {
+  font-size: 12px;
+}
+
+.card-body h6 {
+  font-weight: bolder;
 }
