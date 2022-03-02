@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   def index
-    @bookingss = policy_scope(Pet).order(created_at: :desc)
+    @bookings = policy_scope(Pet).order(created_at: :desc)
   end
 
   def new
