@@ -1,13 +1,24 @@
-<h1 class="mt-5">Congratulations!</h1>
+<div class="mt-5">
+</div>
+<div class="flex-container">
+  <%# <div style="border:3px; border-style:solid; border-color:#FF0000; padding: 1em;"> %>
+  <div style="padding: 1em;">
+  <h1>Congratulations!</h1>
 
-Enjoy your play date with <%= @booking.pet.name %> 🏡<br><br>
+  Enjoy your play date with <%= @booking.pet.name %> 🏡<br><br>
 
-------------------------------------<br>
-Booking details:<br><br>
+  ------------------------------------<br>
+  Booking details:<br><br>
 
-Pick up: <%= @booking.check_in %><br>
-Drop off: <%= @booking.check_out %><br>
-Status: <%= @booking.status.capitalize %><br><br><br>
+  Pick up: <%= @booking.check_in.strftime("%H:%M, %d %b %Y %Z") %><br>
+  Drop off: <%= @booking.check_out.strftime("%H:%M, %d %b %Y %Z") %><br>
+  Status: <%= @booking.status.capitalize %><br><br><br>
 
-<%= link_to "⬅ Return to my dashboard", root_path %> |
-<%= link_to "🔍 Search another pet", pets_path %>
+  <%= link_to "⬅ Return to my dashboard", root_path %> |
+  <%= link_to "🔍 Search another pet", pets_path %>
+  </div>
+  <%# <div style="border:1px; border-style:solid; border-color:black; padding: 1em;"> %>
+  <div style="padding: 1em;">
+  <img src="https://media.istockphoto.com/photos/melbourne-marked-on-map-with-red-pushpin-picture-id183936817?k=20&m=183936817&s=170667a&w=0&h=Xu_rwfSem6m55BnVIXSJQV8mpzTeqIieMkihUtayOa4=" alt="map with pin">
+  </div>
+</div>
