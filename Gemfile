@@ -69,5 +69,10 @@ gem 'devise'
 # authorisation
 gem 'pundit'
 
+
+# geocoder
+gem "geocoder"
+
 # to add photos
 gem 'cloudinary', '~> 1.16.0'
+
