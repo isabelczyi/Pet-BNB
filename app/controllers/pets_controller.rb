@@ -3,6 +3,12 @@ class PetsController < ApplicationController
 
   def index
     @pets = policy_scope(Pet).order(created_at: :desc)
+    @markers = @pets.geocoded.map do |pet|
+      {
+        lat: pet.latitude,
+        lng: pet.longitude
+      }
+    end
   end
 
   def new
