@@ -68,3 +68,6 @@ gem 'devise'
 
 # authorisation
 gem 'pundit'
+
+# geocoder
+gem "geocoder"
