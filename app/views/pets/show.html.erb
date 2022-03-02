@@ -1,23 +1,57 @@
-<div class="container mt-5">
-  <div class="col d-flex justify-content-center mt-5">
-    <div class="card mt-5 text-align-left" style="width: 20rem;">
-      <%= cl_image_tag @pet.photo.key, class: 'card-img-top', crop: :fill, alt: @pet.name %>
-        <div class="card-body" style = "text-align: center;">
-          <h5 class="card-title"><%= @pet.name%></h5>
+<div class"mt-5">
+<br>
+</div>
+<div class="container bg-white mt-5 rounded">
+  <div class="col d-flex  justify-content-center mt-5">
+<div id="carouselExampleCaptions" class="carousel slide m-3" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+  <% (1..@pet.photos.count - 1).each do |i| %>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<%= i %>" aria-label="Slide <%= i %>"></button>
+  <% end %>
+  </div>
+  <div class="carousel-inner">
+  <div class="carousel-item active">
+    <%= cl_image_tag @pet.photos[0].key, class: "d-block w-100", crop: :fill %>
+  </div>
+  <% if @pet.photos.count > 1 %>
+    <% @pet.photos[1..].each do |photo| %>
+      <div class="carousel-item active">
+      <%= cl_image_tag photo.key, class: "d-block w-100", crop: :fill %>
+      </div>
+    <% end %>
+  <% end %>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+  </div>
+</div>
+
+
+<div class="container bg-white">
+  <div class="col p-3">
+
+<h5 class="card-title"><%= @pet.name%></h5>
           <p class="card-text"> Location: <%=@pet.location %></p>
           <p class="card-text"> Description: <%=@pet.description %></p>
           <p class="card-text"> Category: <%=@pet.category%></p>
           <p class="card-text"> Price: $<%=number_with_precision(@pet.price, precision: 2) %>/hr</p>
           <% if @pet.user == current_user %>
-            <%= link_to "Edit", edit_pet_path(@pet), class: "btn btn-outline-info" %>
+            <%= link_to "Edit", edit_pet_path(@pet), class: "btn btn-outline-success" %>
 
             <%= link_to "Delete",
                   pet_path(@pet),
                   method: :delete,
-                  data: { confirm: "Are you sure?" }, class: "btn btn-outline-info" %>
+                  data: { confirm: "Are you sure?" }, class: "btn btn-outline-success" %>
           <% end %>
-          <%= link_to "Book now", new_pet_booking_path(@pet), class: "btn btn-outline-info" %>
-        </div>
-    </div>
+          <%= link_to "Book now", new_pet_booking_path(@pet), class: "btn btn-outline-success" %>
+
   </div>
 </div>
