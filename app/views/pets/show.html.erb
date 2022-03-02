@@ -9,10 +9,14 @@
           <p class="card-text"> Category: <%=@pet.category%></p>
           <p class="card-text"> Price: $<%=number_with_precision(@pet.price, precision: 2) %>/hr</p>
           <% if @pet.user == current_user %>
-            <a href="#" class="btn btn-outline-info">Edit</a>
-            <a href="#" class="btn btn-outline-info">Delete</a>
+            <%= link_to "Edit", edit_pet_path(@pet), class: "btn btn-outline-info" %>
+
+            <%= link_to "Delete",
+                  pet_path(@pet),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" }, class: "btn btn-outline-info" %>
           <% end %>
-          <a href="#" class="btn btn-outline-info">Book now</a>
+          <%= link_to "Book now", new_pet_booking_path(@pet), class: "btn btn-outline-info" %>
         </div>
     </div>
   </div>

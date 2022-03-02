@@ -17,4 +17,6 @@
     <% end %>
 
  </div>
- <%= link_to "Add a pet", new_pet_path, class: "btn btn-success mt-5" %>
+ <% if policy(Pet).create? %>
+  <%= link_to "Add a pet", new_pet_path, class: "btn btn-success mt-5" %>
+ <% end %>

@@ -1,15 +1,17 @@
 class BookingsController < ApplicationController
-  def index
-    @bookings = Booking.all
-  end
+  # def index
+  #   @bookingss = policy_scope(Pet).order(created_at: :desc)
+  # end
 
   def new
     @pet = Pet.find(params[:pet_id])
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
     @booking = Booking.new(booking_params)
+    authorize @booking
     @pet = Pet.find(params[:pet_id])
     @booking.pet = @pet
     @booking.user = current_user
@@ -22,6 +24,7 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
+    authorize @booking
   end
 
   private
