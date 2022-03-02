@@ -9,7 +9,7 @@
       <%= link_to "Add a new pet", new_pet_path, class: "btn btn-success" %>
     <% end %>
     </div>
-<% if !current_user.pets.empty?%>
+  <% if !current_user.pets.empty?%>
   <div class="mt-2 mb-2">
     <h3>Your pets</h3>
     <div class="d-flex justify-content-evenly">
@@ -44,7 +44,7 @@
       <% end %>
   </div>
 </div>
-
+<% end %>
 
 <% if !current_user.bookings.empty?%>
   <div class="bookings-list mb-2">
@@ -67,6 +67,6 @@
     </div>
   </div>
 <% end %>
-<% end %>
+
 
 </div>
