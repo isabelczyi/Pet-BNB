@@ -1,10 +1,13 @@
-<h1 class="mt-5">Booking ref#001</h1>
-Congratulations!<br><br>
+<h1 class="mt-5">Congratulations!</h1>
+
+Enjoy your play date with <%= @booking.pet.name %> 🏡<br><br>
+
+------------------------------------<br>
+Booking details:<br><br>
 
 Pick up: <%= @booking.check_in %><br>
-Drop off: <%= @booking.check_out %><br><br><br>
-
-Enjoy your play date with<br><br>
+Drop off: <%= @booking.check_out %><br>
+Status: <%= @booking.status.capitalize %><br><br><br>
 
 <%= link_to "⬅ Return to my dashboard", root_path %> |
 <%= link_to "🔍 Search another pet", pets_path %>
