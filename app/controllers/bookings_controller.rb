@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
-  # def index
-  #   @bookingss = policy_scope(Pet).order(created_at: :desc)
-  # end
+  def index
+    @bookingss = policy_scope(Pet).order(created_at: :desc)
+  end
 
   def new
     @pet = Pet.find(params[:pet_id])
