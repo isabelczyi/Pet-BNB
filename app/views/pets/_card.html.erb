@@ -11,7 +11,7 @@
         <h5 class="card-title">$<%= number_with_precision(pet.price, precision: 2) %>/hr</h5>
         </div>
         <p class="card-text"><%= pet.location %></p>
-        <a href="#" class="btn btn-primary">Book now</a>
+         <%= link_to "Book now", new_pet_booking_path(pet), class: "btn btn-outline-info" %>
       </div>
     </div>
     <% end %>
