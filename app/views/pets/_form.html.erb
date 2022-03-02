@@ -6,6 +6,7 @@
         <%= f.input :category, collection: ["Dogs", "Cats", "Fish", "Reptiles", "Others"]  %>
         <%= f.input :location %>
         <%= f.input :price %>
+        <%= f.input :photo, as: :file %>
         <%= f.input :description %>
         <%= f.submit "Submit pet", class: "btn btn-primary" %>
       <% end %>

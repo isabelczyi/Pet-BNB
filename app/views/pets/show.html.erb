@@ -1,9 +1,9 @@
-<div style = "container; margin-top: 50px;">
-  <div class="col d-flex justify-content-center">
-    <div class="card" style="width: 20rem;">
-      <img class="card-img-top" src="https://juniperpets.com/wp-content/uploads/2021/07/why-your-blue-heeler-follows-you-everywhere.jpg" class="card-img-top" alt="Card image cap">
+<div class="container mt-5">
+  <div class="col d-flex justify-content-center mt-5">
+    <div class="card mt-5 text-align-left" style="width: 20rem;">
+      <%= cl_image_tag @pet.photo.key, class: 'card-img-top', crop: :fill, alt: @pet.name %>
         <div class="card-body" style = "text-align: center;">
-          <h5 class="card-title">Name: <%= @pet.name%></h5>
+          <h5 class="card-title"><%= @pet.name%></h5>
           <p class="card-text"> Location: <%=@pet.location %></p>
           <p class="card-text"> Description: <%=@pet.description %></p>
           <p class="card-text"> Category: <%=@pet.category%></p>
