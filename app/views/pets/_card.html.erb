@@ -4,13 +4,13 @@
 
     <% @pets.each do |pet| %>
 
-    <div class="card m-2" style="width: 12rem;">
+    <div class="card m-2" style="width: 16rem;">
       <a href="/pets/<%= pet.id %>">
       <img src="https://juniperpets.com/wp-content/uploads/2021/07/why-your-blue-heeler-follows-you-everywhere.jpg" class="card-img-top" alt="...">
       </a>
       <div class="card-body">
       <div class="d-flex justify-content-between">
-        <h5 class="card-title"><%= pet.name %></h5>
+        <h5 class="card-title"><%= pet.name %></h5><br>
         <h5 class="card-title">$<%= number_with_precision(pet.price, precision: 2) %>/hr</h5>
         </div>
         <p class="card-text"><%= pet.location %></p>
