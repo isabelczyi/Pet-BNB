@@ -30,7 +30,7 @@ p "Created #{User.count} users."
     price: rand(10...100),
     description: Faker::Food.description,
     user_id: rand(1..10),
-    category: ['dog', 'cat', 'fish', 'reptile','others'].sample,
+    category: ["Dogs", "Cats", "Fish", "Reptiles", "Others"].sample,
     name: Faker::Artist.name
   )
 end
