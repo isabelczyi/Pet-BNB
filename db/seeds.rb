@@ -9,7 +9,8 @@ require 'faker'
 
 # destroy data
 User.destroy_all if Rails.env == 'development'
-Pet.destroy_all if Rails.env == 'development'
+
+p "Seeding data.."
 
 # add data
 10.times do
@@ -17,9 +18,11 @@ Pet.destroy_all if Rails.env == 'development'
     email: Faker::Internet.email,
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    encrypted_password: 'password'
+    password: 'password'
   )
 end
+
+p "Created #{User.count} users."
 
 10.times do
   Pet.create(
@@ -32,5 +35,4 @@ end
   )
 end
 
-p "**Created #{User.count} users**"
-p "**Created #{Pet.count} pets**"
+p "Created #{Pet.count} pets."
