@@ -69,10 +69,11 @@ gem 'devise'
 # authorisation
 gem 'pundit'
 
-
 # geocoder
 gem "geocoder"
 
 # to add photos
 gem 'cloudinary', '~> 1.16.0'
 
+# faker
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
