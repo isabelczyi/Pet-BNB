@@ -68,3 +68,6 @@ gem 'devise'
 
 # authorisation
 gem 'pundit'
+
+# to add photos
+gem 'cloudinary', '~> 1.16.0'
