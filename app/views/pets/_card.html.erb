@@ -1,7 +1,10 @@
-<div class="d-flex justify-content-evenly">
+
+
+<div class="d-flex  justify-content-evenly flex-wrap">
+
     <% @pets.each do |pet| %>
 
-    <div class="card" style="width: 18rem;">
+    <div class="card" style="width: 12rem;">
       <a href="/pets/<%= pet.id %>">
       <img src="https://juniperpets.com/wp-content/uploads/2021/07/why-your-blue-heeler-follows-you-everywhere.jpg" class="card-img-top" alt="...">
       </a>
@@ -14,9 +17,6 @@
          <%= link_to "Book now", new_pet_booking_path(pet), class: "btn btn-outline-info" %>
       </div>
     </div>
-    <% end %>
 
- </div>
- <% if policy(Pet).create? %>
-  <%= link_to "Add a pet", new_pet_path, class: "btn btn-success mt-5" %>
- <% end %>
+    <% end %>
+</div>
