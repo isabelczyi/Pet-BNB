@@ -1,10 +1,10 @@
 
 
-<div class="d-flex  justify-content-evenly flex-wrap">
+<div class="d-flex  justify-content-evenly flex-wrap mt-3">
 
     <% @pets.each do |pet| %>
 
-    <div class="card" style="width: 12rem;">
+    <div class="card m-2" style="width: 12rem;">
       <a href="/pets/<%= pet.id %>">
       <img src="https://juniperpets.com/wp-content/uploads/2021/07/why-your-blue-heeler-follows-you-everywhere.jpg" class="card-img-top" alt="...">
       </a>
@@ -14,7 +14,7 @@
         <h5 class="card-title">$<%= number_with_precision(pet.price, precision: 2) %>/hr</h5>
         </div>
         <p class="card-text"><%= pet.location %></p>
-         <%= link_to "Book now", new_pet_booking_path(pet), class: "btn btn-outline-info" %>
+         <%= link_to "Book now", new_pet_booking_path(pet), class: "btn btn-outline-success" %>
       </div>
     </div>
 
