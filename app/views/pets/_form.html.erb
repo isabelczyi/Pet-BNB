@@ -2,6 +2,13 @@
   <div class="row justify-content-center">
     <div class="col-6">
       <%= simple_form_for @pet do |f| %>
+
+        <% if action_name == 'new'%>
+          <h1 class="mt-2">Add a new pet</h1>
+        <% elsif action_name == 'edit'%>
+            <h1 class="mt-2">Edit details of <%= @pet.name %></h1>
+        <%end%>
+
         <%= f.input :name %>
         <%= f.input :category, collection: ["Dogs", "Cats", "Fish", "Reptiles", "Birds"]  %>
         <%= f.input :location %>
