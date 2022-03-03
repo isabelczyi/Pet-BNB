@@ -34,9 +34,11 @@ require "open-uri"
     location: Faker::Address.city,
     price: rand(10...100),
     description: Faker::Food.description,
-    user_id: rand(71..75),
+    user_id: rand(81..85),
     category: "Dogs",
-    name: Faker::Artist.name
+    name: Faker::Artist.name,
+    latitude: rand(-31.000000..-21.000000),
+    longitude: rand(115.000000..149.000000)
   )
   pet.photos.attach(io: file, filename: 'dog.png', content_type: 'image/png')
   pet.save
@@ -48,9 +50,11 @@ end
     location: Faker::Address.city,
     price: rand(10...100),
     description: Faker::Food.description,
-    user_id: rand(71..75),
+    user_id: rand(81..85),
     category: "Cats",
-    name: Faker::Artist.name
+    name: Faker::Artist.name,
+    latitude: rand(-31.000000..-21.000000),
+    longitude: rand(115.000000..149.000000)
   )
   pet.photos.attach(io: file, filename: 'cat.png', content_type: 'image/png')
   pet.save
@@ -62,9 +66,11 @@ end
     location: Faker::Address.city,
     price: rand(10...100),
     description: Faker::Food.description,
-    user_id: rand(71..75),
+    user_id: rand(81..85),
     category: "Fish",
-    name: Faker::Artist.name
+    name: Faker::Artist.name,
+    latitude: rand(-31.000000..-21.000000),
+    longitude: rand(115.000000..149.000000)
   )
   pet.photos.attach(io: file, filename: 'fish.png', content_type: 'image/png')
   pet.save
@@ -76,9 +82,11 @@ end
     location: Faker::Address.city,
     price: rand(10...100),
     description: Faker::Food.description,
-    user_id: rand(71..75),
+    user_id: rand(81..85),
     category: "Reptiles",
-    name: Faker::Artist.name
+    name: Faker::Artist.name,
+    latitude: rand(-31.000000..-21.000000),
+    longitude: rand(115.000000..149.000000)
   )
   pet.photos.attach(io: file, filename: 'reptile.png', content_type: 'image/png')
   pet.save
@@ -90,11 +98,11 @@ end
     location: Faker::Address.city,
     price: rand(10...100),
     description: Faker::Food.description,
-    user_id: rand(71..75),
+    user_id: rand(81..85),
     category: "Birds",
     name: Faker::Artist.name,
-    latitude: rand(-90..90),
-    longitude: rand(-180..180)
+    latitude: rand(-31.000000..-21.000000),
+    longitude: rand(115.000000..149.000000)
   )
   pet.photos.attach(io: file, filename: 'bird.png', content_type: 'image/png')
   pet.save
