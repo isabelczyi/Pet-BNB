@@ -56,9 +56,10 @@ class PetsController < ApplicationController
     @markers =[
       {
         lat: @pet.latitude,
-        lng: @pet.longitude
+        lng: @pet.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { pet: @pet }),
+        image_url: "http://res.cloudinary.com/dyr0u2nqe/image/upload/v1646310640/x9uhrgqmvof9apbjyrrg.png"
       }]
-
   end
 
   def edit
