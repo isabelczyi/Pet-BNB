@@ -3,10 +3,26 @@ class PetsController < ApplicationController
 
   def index
     @pets = policy_scope(Pet).order(created_at: :desc)
+          @markers = @pets.map do |pet|
+      {
+        lat: pet.latitude,
+        lng: pet.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { pet: pet }),
+        image_url: "http://res.cloudinary.com/dyr0u2nqe/image/upload/v1646310640/x9uhrgqmvof9apbjyrrg.png"
+      }
+    end
   end
 
   def all
     @pets = policy_scope(Pet).order(created_at: :desc)
+          @markers = @pets.map do |pet|
+      {
+        lat: pet.latitude,
+        lng: pet.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { pet: pet }),
+        image_url: "http://res.cloudinary.com/dyr0u2nqe/image/upload/v1646310640/x9uhrgqmvof9apbjyrrg.png"
+      }
+    end
   end
 
   def new
@@ -17,26 +33,66 @@ class PetsController < ApplicationController
   def dog
     @pets = Pet.where("category = 'Dogs'")
     authorize @pets
+          @markers = @pets.map do |pet|
+      {
+        lat: pet.latitude,
+        lng: pet.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { pet: pet }),
+        image_url: "http://res.cloudinary.com/dyr0u2nqe/image/upload/v1646310640/x9uhrgqmvof9apbjyrrg.png"
+      }
+    end
   end
 
   def cat
     @pets = Pet.where("category = 'Cats'")
     authorize @pets
+          @markers = @pets.map do |pet|
+      {
+        lat: pet.latitude,
+        lng: pet.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { pet: pet }),
+        image_url: "http://res.cloudinary.com/dyr0u2nqe/image/upload/v1646310640/x9uhrgqmvof9apbjyrrg.png"
+      }
+    end
   end
 
   def fish
     @pets = Pet.where("category = 'Fish'")
     authorize @pets
+          @markers = @pets.map do |pet|
+      {
+        lat: pet.latitude,
+        lng: pet.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { pet: pet }),
+        image_url: "http://res.cloudinary.com/dyr0u2nqe/image/upload/v1646310640/x9uhrgqmvof9apbjyrrg.png"
+      }
+    end
   end
 
   def reptile
     @pets = Pet.where("category = 'Reptiles'")
     authorize @pets
+          @markers = @pets.map do |pet|
+      {
+        lat: pet.latitude,
+        lng: pet.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { pet: pet }),
+        image_url: "http://res.cloudinary.com/dyr0u2nqe/image/upload/v1646310640/x9uhrgqmvof9apbjyrrg.png"
+      }
+    end
   end
 
   def bird
     @pets = Pet.where("category = 'Birds'")
     authorize @pets
+          @markers = @pets.map do |pet|
+      {
+        lat: pet.latitude,
+        lng: pet.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { pet: pet }),
+        image_url: "http://res.cloudinary.com/dyr0u2nqe/image/upload/v1646310640/x9uhrgqmvof9apbjyrrg.png"
+      }
+    end
   end
 
   def create
@@ -91,4 +147,5 @@ class PetsController < ApplicationController
   def pet_params
     params.require(:pet).permit(:name, :category, :location, :price, :description, photos: [])
   end
+
 end

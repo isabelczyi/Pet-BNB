@@ -25,6 +25,13 @@ class BookingsController < ApplicationController
   def show
     @booking = Booking.find(params[:id])
     authorize @booking
+     @markers =[
+      {
+        lat: @booking.pet.latitude,
+        lng: @booking.pet.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { pet: @booking.pet }),
+        image_url: "http://res.cloudinary.com/dyr0u2nqe/image/upload/v1646310640/x9uhrgqmvof9apbjyrrg.png"
+      }]
   end
 
   def edit
