@@ -39,13 +39,15 @@
       <% end %>
     </div>
   <% end %>
+  <%= link_to pet_path(pet) do %>
       <div class="card-body">
       <div class="d-flex justify-content-between">
+
         <h5 class="card-title"><%= pet.name %></h5><br>
         <h5 class="card-title">$<%= number_with_precision(pet.price, precision: 2) %>/hr</h5>
         </div>
-        <p class="card-text"><%= pet.address %></p>
-
+        <p class="card-text mb-3"><%= pet.address %></p>
+      <% end %>
       <% if user_signed_in? %>
          <% if current_user.pets.include?(pet) %>
          <div class="d-flex justify-content-end">
@@ -67,10 +69,10 @@
               <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
             </svg>
             <% end %>
+         <% end %>
          </div>
          <% else %>
-         <%= link_to "Book now", new_pet_booking_path(pet), class: "btn btn-outline-success" %>
-         <% end %>
+         <%= link_to "Book now", new_pet_booking_path(pet), class: "btn btn-success" %>
         <% end %>
       </div>
     </div>
