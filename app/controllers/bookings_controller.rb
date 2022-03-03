@@ -27,6 +27,29 @@ class BookingsController < ApplicationController
     authorize @booking
   end
 
+  def edit
+    @booking = Booking.find(params[:id])
+    authorize @booking
+
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    authorize @booking
+   if @booking.update(booking_params)
+    redirect_to root_path
+   else
+    render :edit
+   end
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.destroy
+    redirect_to root_path
+  end
+
   private
 
   def booking_params
