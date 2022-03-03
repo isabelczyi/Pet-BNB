@@ -1,7 +1,9 @@
-<div class="container mt-5">
-  <h1>Cats</h1>
+  <div class="mt-5"><br></div>
+<div class="mt-2">
+<h1 class="text-center">Pet Rentals</h1>
+  <h2 class="ms-4">Cats</h2>
 
-  <div class="dropdown">
+  <div class="dropdown ms-4">
     <div class="d-flex justify-content-between">
     <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
       Categories
@@ -12,7 +14,7 @@
       <li><a class="dropdown-item" href="/pets/reptile">Reptiles</a></li>
       <li><a class="dropdown-item" href="/pets/bird">Birds</a></li>
     </ul>
-    <%= link_to "Back to all pets", pets_path, class: "btn btn-success" %>
+    <%= link_to "All pets", all_pets_path, class: "btn btn-success me-4" %>
     </div>
   </div>
 

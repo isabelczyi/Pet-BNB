@@ -26,16 +26,90 @@ end
 
 p "Created #{User.count} users..."
 
-# add pet data
-150.times do
-  Pet.create(
+require "open-uri"
+
+30.times do
+  file = URI.open('https://source.unsplash.com/random/?dog')
+  pet = Pet.new(
     location: Faker::Address.city,
     price: rand(10...100),
     description: Faker::Food.description,
-    user_id: rand(132..142),
-    category: ['Dogs', 'Cats', 'Fish', 'Reptiles', 'Birds'].sample,
+    user_id: rand(1..20),
+    category: "Dogs",
     name: Faker::Artist.name
   )
+  pet.photos.attach(io: file, filename: 'dog.png', content_type: 'image/png')
+  pet.save
 end
+
+30.times do
+  file = URI.open('https://source.unsplash.com/random/?cat')
+  pet = Pet.new(
+    location: Faker::Address.city,
+    price: rand(10...100),
+    description: Faker::Food.description,
+    user_id: rand(1..20),
+    category: "Cats",
+    name: Faker::Artist.name
+  )
+  pet.photos.attach(io: file, filename: 'cat.png', content_type: 'image/png')
+  pet.save
+end
+
+30.times do
+  file = URI.open('https://source.unsplash.com/random/?fish')
+  pet = Pet.new(
+    location: Faker::Address.city,
+    price: rand(10...100),
+    description: Faker::Food.description,
+    user_id: rand(1..20),
+    category: "Fish",
+    name: Faker::Artist.name
+  )
+  pet.photos.attach(io: file, filename: 'fish.png', content_type: 'image/png')
+  pet.save
+end
+
+30.times do
+  file = URI.open('https://source.unsplash.com/random/?reptile')
+  pet = Pet.new(
+    location: Faker::Address.city,
+    price: rand(10...100),
+    description: Faker::Food.description,
+    user_id: rand(1..20),
+    category: "Reptiles",
+    name: Faker::Artist.name
+  )
+  pet.photos.attach(io: file, filename: 'reptile.png', content_type: 'image/png')
+  pet.save
+end
+
+30.times do
+  file = URI.open('https://source.unsplash.com/random/?bird')
+  pet = Pet.new(
+    location: Faker::Address.city,
+    price: rand(10...100),
+    description: Faker::Food.description,
+    user_id: rand(1..20),
+    category: "Birds",
+    name: Faker::Artist.name
+  )
+  pet.photos.attach(io: file, filename: 'bird.png', content_type: 'image/png')
+  pet.save
+end
+
+
+
+# add pet data
+# 150.times do
+#   Pet.create(
+#     location: Faker::Address.city,
+#     price: rand(10...100),
+#     description: Faker::Food.description,
+#     user_id: rand(7..26),
+#     category: ['Dogs', 'Cats', 'Fish', 'Reptiles', 'Birds'].sample,
+#     name: Faker::Artist.name
+#   )
+# end
 
 p "Created #{Pet.count} pets.."
