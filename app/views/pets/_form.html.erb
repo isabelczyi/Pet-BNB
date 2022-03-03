@@ -9,6 +9,7 @@
         <%= f.input :photos, as: :file, input_html: { multiple: true } %>
         <%= f.input :description %>
         <%= f.submit "Submit pet", class: "btn btn-primary" %>
+        <%= link_to "Cancel", :back, class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>

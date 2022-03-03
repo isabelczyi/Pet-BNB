@@ -1,16 +1,20 @@
 .container {
   width: 800px;
   padding: 0px 15px 25px 15px;
-}
-
-.btns {
-  height: 80px;
-  align-items: right;
   margin-top: 5px;
 }
 
-.cards {
-  border: none;
+.btns {
+  display: flex;
+  justify-content: end;
+  width: 900px;
+}
+
+.your-pets-card {
+ display: flex;
+ justify-content: space-between;
+ height: 60px;
+ align-items: center;
 }
 
 .card-body p {
@@ -19,4 +23,15 @@
 
 .card-body h6 {
   font-weight: bolder;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.your-bookings-options {
+display: flex;
+justify-content: end;
+margin-bottom: 5px;
 }
