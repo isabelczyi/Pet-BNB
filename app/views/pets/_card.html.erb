@@ -21,7 +21,7 @@
       <% if pet.photos.count > 1 %>
         <% pet.photos[1..].each do |photo| %>
           <div class="carousel-item">
-          <%= cl_image_tag photo.key, class: "d-block w-100 h-50", crop: :fill, style: "object-fit:cover"  %>
+          <%= cl_image_tag photo.key, class: "d-block w-100", crop: :fill, style: "object-fit:cover, height: 200px;"  %>
           </div>
         <% end %>
       <% end %>

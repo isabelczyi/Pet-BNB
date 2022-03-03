@@ -2,7 +2,7 @@
 <br>
 </div>
 <% if !@pet.photos.empty? %>
-  <div class="bg-white mt-5 rounded">
+  <div class="container bg-white mt-5 rounded">
     <div class="col d-flex  justify-content-center flex-wrap mt-5">
       <div id="carouselExampleCaptions" class="carousel slide m-3" data-bs-ride="carousel">
         <div class="carousel-indicators">
@@ -13,12 +13,12 @@
         </div>
         <div class="carousel-inner">
         <div class="carousel-item active">
-          <%= cl_image_tag @pet.photos[0].key, class: "d-block w-100", crop: :fill %>
+          <%= cl_image_tag @pet.photos[0].key, class: "d-block w-100", crop: :fill, style:"object-fit: cover; height: 500px;" %>
         </div>
         <% if @pet.photos.count > 1 %>
           <% @pet.photos[1..].each do |photo| %>
             <div class="carousel-item">
-            <%= cl_image_tag photo.key, class: "d-block w-100", crop: :fill %>
+            <%= cl_image_tag photo.key, class: "d-block w-100", crop: :fill, style:"object-fit: cover; height: 500px;" %>
             </div>
           <% end %>
         <% end %>
