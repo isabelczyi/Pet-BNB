@@ -15,7 +15,7 @@ Pet.destroy_all if Rails.env == 'development'
 p "Seeding data.."
 
 # add user data
-20.times do
+5.times do
   User.create(
     email: Faker::Internet.email,
     first_name: Faker::Name.first_name,
@@ -28,13 +28,13 @@ p "Created #{User.count} users..."
 
 require "open-uri"
 
-30.times do
+3.times do
   file = URI.open('https://source.unsplash.com/random/?dog')
   pet = Pet.new(
     location: Faker::Address.city,
     price: rand(10...100),
     description: Faker::Food.description,
-    user_id: rand(1..20),
+    user_id: rand(71..75),
     category: "Dogs",
     name: Faker::Artist.name
   )
@@ -42,13 +42,13 @@ require "open-uri"
   pet.save
 end
 
-30.times do
+3.times do
   file = URI.open('https://source.unsplash.com/random/?cat')
   pet = Pet.new(
     location: Faker::Address.city,
     price: rand(10...100),
     description: Faker::Food.description,
-    user_id: rand(1..20),
+    user_id: rand(71..75),
     category: "Cats",
     name: Faker::Artist.name
   )
@@ -56,13 +56,13 @@ end
   pet.save
 end
 
-30.times do
+3.times do
   file = URI.open('https://source.unsplash.com/random/?fish')
   pet = Pet.new(
     location: Faker::Address.city,
     price: rand(10...100),
     description: Faker::Food.description,
-    user_id: rand(1..20),
+    user_id: rand(71..75),
     category: "Fish",
     name: Faker::Artist.name
   )
@@ -70,13 +70,13 @@ end
   pet.save
 end
 
-30.times do
+3.times do
   file = URI.open('https://source.unsplash.com/random/?reptile')
   pet = Pet.new(
     location: Faker::Address.city,
     price: rand(10...100),
     description: Faker::Food.description,
-    user_id: rand(1..20),
+    user_id: rand(71..75),
     category: "Reptiles",
     name: Faker::Artist.name
   )
@@ -84,15 +84,17 @@ end
   pet.save
 end
 
-30.times do
+3.times do
   file = URI.open('https://source.unsplash.com/random/?bird')
   pet = Pet.new(
     location: Faker::Address.city,
     price: rand(10...100),
     description: Faker::Food.description,
-    user_id: rand(1..20),
+    user_id: rand(71..75),
     category: "Birds",
-    name: Faker::Artist.name
+    name: Faker::Artist.name,
+    latitude: rand(-90..90),
+    longitude: rand(-180..180)
   )
   pet.photos.attach(io: file, filename: 'bird.png', content_type: 'image/png')
   pet.save
