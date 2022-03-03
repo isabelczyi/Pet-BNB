@@ -10,6 +10,10 @@ class PetPolicy < ApplicationPolicy
     return true
   end
 
+  def all?
+    true
+  end
+
   def show?
     true
   end
@@ -38,7 +42,7 @@ class PetPolicy < ApplicationPolicy
     true
   end
 
-  def others?
+  def bird?
     true
   end
 end

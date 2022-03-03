@@ -1,14 +1,18 @@
 class PetsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :dog, :cat, :fish, :reptile, :others]
+  skip_before_action :authenticate_user!, only: [:index, :dog, :cat, :fish, :reptile, :others, :all]
 
   def index
-    @pets = policy_scope(Pet).order(created_at: :desc)
     # @markers = @pets.geocoded.map do |pet|
     #   {
     #     lat: pet.latitude,
     #     lng: pet.longitude
     #   }
     # end
+    @pets = policy_scope(Pet).order(created_at: :desc)
+  end
+
+  def all
+    @pets = policy_scope(Pet).order(created_at: :desc)
   end
 
   def new
@@ -36,8 +40,8 @@ class PetsController < ApplicationController
     authorize @pets
   end
 
-  def others
-    @pets = Pet.where("category = 'Others'")
+  def bird
+    @pets = Pet.where("category = 'Birds'")
     authorize @pets
   end
 
