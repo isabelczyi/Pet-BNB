@@ -16,12 +16,12 @@
       </div>
       <div class="carousel-inner">
       <div class="carousel-item active">
-        <%= cl_image_tag pet.photos[0].key, class: "d-block w-100", crop: :fill %>
+        <%= cl_image_tag pet.photos[0].key, class: "d-block w-100", crop: :fill, style: "object-fit: cover; height: 200px;" %>
       </div>
       <% if pet.photos.count > 1 %>
         <% pet.photos[1..].each do |photo| %>
           <div class="carousel-item">
-          <%= cl_image_tag photo.key, class: "d-block w-100", crop: :fill %>
+          <%= cl_image_tag photo.key, class: "d-block w-100 h-50", crop: :fill, style: "object-fit:cover"  %>
           </div>
         <% end %>
       <% end %>
@@ -43,7 +43,32 @@
         <h5 class="card-title">$<%= number_with_precision(pet.price, precision: 2) %>/hr</h5>
         </div>
         <p class="card-text"><%= pet.location %></p>
+
+
+         <% if current_user.pets.include?(pet) %>
+         <div class="d-flex justify-content-end">
+          <%= link_to edit_pet_path(pet) do%>
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
+              <line x1="13.5 y1=6.5 x2=17.5 y2=10.5" /></svg>
+            <% end %>
+            <%= link_to pet_path(pet),
+                    method: :delete, class: "pe-2",
+                    data: { confirm: "Are you sure?" } do%>
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <line x1="4" y1="7" x2="20" y2="7" />
+              <line x1="10" y1="11" x2="10" y2="17" />
+              <line x1="14" y1="11" x2="14" y2="17" />
+              <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+              <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+            </svg>
+            <% end %>
+         </div>
+         <% else %>
          <%= link_to "Book now", new_pet_booking_path(pet), class: "btn btn-outline-success" %>
+         <% end %>
       </div>
     </div>
 

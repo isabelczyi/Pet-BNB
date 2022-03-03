@@ -12,17 +12,32 @@
   // border-bottom: 1px solid grey;
 }
 
+h1 {
+  font-size: 64px;
+}
+
+.container3 {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-left: 200px;
+  padding-right: 200px;
+}
+
 .card2 {
-  height: 150px;
-  width: 250px;
+  height: 200px;
+  width: 335px;
   opacity: 1;
   text-align: center;
   position: relative;
-  border-radius: 16px;
+  border-radius: 4px;
+  margin: 5px 5px 5px 5px;
 }
 
 .text-card h4{
-  font-size: 16px;
+  font-size: 36px;
   position: absolute;
   top: 75%;
   left: 50%;
@@ -30,16 +45,19 @@
   // font-weight: bold;
   color: white;
   text-shadow: 1px 1px 1px black;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  padding: 0px 10px 0px 10px;
 }
 
 .card-img {
-  height: 140px;
-  width: 240px;
+  height: 190px;
+  width: 320px;
   padding: 4px;
   opacity: 1;
   // mask-image: linear-gradient(0deg, #00000038 30%, #ffffff44 100%);
   // -webkit-mask-image: linear-gradient(0deg, #00000038 30%, #ffffff44 100%);
-  border-radius: 16px;
+  border-radius: 4px;
 }
 
 .card-img:hover {
