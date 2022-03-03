@@ -10,8 +10,7 @@
   ------------------------------------<br>
   Booking details:<br><br>
 
-  <%# Location: <%= @booking.pet.location %>
-  Location: Melbourne<br>
+  Address: <%= @booking.pet.address
   Pick up: <%= @booking.check_in.strftime("%H:%M, %d %b %Y %Z") %><br>
   Drop off: <%= @booking.check_out.strftime("%H:%M, %d %b %Y %Z") %><br>
   Status: <%= @booking.status.capitalize %><br><br>

@@ -31,10 +31,10 @@ require "open-uri"
 3.times do
   file = URI.open('https://source.unsplash.com/random/?dog')
   pet = Pet.new(
-    # location: Faker::Address.city,
+    address: Faker::Address.city,
     price: rand(10...100),
     description: Faker::Food.description,
-    user_id: rand(81..85),
+    user_id: rand(1..5),
     category: "Dogs",
     name: Faker::Artist.name,
     latitude: rand(-31.000000..-21.000000),
@@ -47,10 +47,10 @@ end
 3.times do
   file = URI.open('https://source.unsplash.com/random/?cat')
   pet = Pet.new(
-    # location: Faker::Address.city,
+    address: Faker::Address.city,
     price: rand(10...100),
     description: Faker::Food.description,
-    user_id: rand(81..85),
+    user_id: rand(1..5),
     category: "Cats",
     name: Faker::Artist.name,
     latitude: rand(-31.000000..-21.000000),
@@ -63,10 +63,10 @@ end
 3.times do
   file = URI.open('https://source.unsplash.com/random/?fish')
   pet = Pet.new(
-    # location: Faker::Address.city,
+    address: Faker::Address.city,
     price: rand(10...100),
     description: Faker::Food.description,
-    user_id: rand(81..85),
+    user_id: rand(1..5),
     category: "Fish",
     name: Faker::Artist.name,
     latitude: rand(-31.000000..-21.000000),
@@ -79,10 +79,10 @@ end
 3.times do
   file = URI.open('https://source.unsplash.com/random/?reptile')
   pet = Pet.new(
-    # location: Faker::Address.city,
+    address: Faker::Address.city,
     price: rand(10...100),
     description: Faker::Food.description,
-    user_id: rand(81..85),
+    user_id: rand(1..5),
     category: "Reptiles",
     name: Faker::Artist.name,
     latitude: rand(-31.000000..-21.000000),
@@ -95,10 +95,10 @@ end
 3.times do
   file = URI.open('https://source.unsplash.com/random/?bird')
   pet = Pet.new(
-    # location: Faker::Address.city,
+    address: Faker::Address.city,
     price: rand(10...100),
     description: Faker::Food.description,
-    user_id: rand(81..85),
+    user_id: rand(1..5),
     category: "Birds",
     name: Faker::Artist.name,
     latitude: rand(-31.000000..-21.000000),
