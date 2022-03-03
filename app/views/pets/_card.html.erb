@@ -5,7 +5,6 @@
     <% @pets.each do |pet| %>
 
     <div class="card m-2" style="width: 16rem;">
-      <a href="/pets/<%= pet.id %>">
       <% if !pet.photos.empty? %>
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
@@ -15,6 +14,7 @@
       <% end %>
       </div>
       <div class="carousel-inner">
+      <a href="/pets/<%= pet.id %>">
       <div class="carousel-item active">
         <%= cl_image_tag pet.photos[0].key, class: "d-block w-100", crop: :fill, style: "object-fit: cover; height: 200px;" %>
       </div>
@@ -25,7 +25,9 @@
           </div>
         <% end %>
       <% end %>
+      </a>
       </div>
+      <% if pet.photos.count > 1 %>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
@@ -34,9 +36,9 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button>
+      <% end %>
     </div>
   <% end %>
-      </a>
       <div class="card-body">
       <div class="d-flex justify-content-between">
         <h5 class="card-title"><%= pet.name %></h5><br>
