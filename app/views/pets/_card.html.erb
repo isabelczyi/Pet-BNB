@@ -44,7 +44,7 @@
         </div>
         <p class="card-text"><%= pet.location %></p>
 
-
+      <% if user_signed_in? %>
          <% if current_user.pets.include?(pet) %>
          <div class="d-flex justify-content-end">
           <%= link_to edit_pet_path(pet) do%>
@@ -69,6 +69,7 @@
          <% else %>
          <%= link_to "Book now", new_pet_booking_path(pet), class: "btn btn-outline-success" %>
          <% end %>
+        <% end %>
       </div>
     </div>
 
