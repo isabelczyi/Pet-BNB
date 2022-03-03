@@ -1,29 +1,31 @@
-  <div class="mt-5"><br></div>
-<div class="mt-2">
-<%# <h1 class="text-center">Pet Rentals</h1> %>
-  <h2 class="ms-4">Reptiles</h2>
+<div class="mt-5"><br>
+</div>
 
+<div class="mt-2">
+  <%# <h1 class="text-center">Pet Rentals</h1> %>
+  <h2 class="ms-4">Reptiles</h2>
   <div class="dropdown ms-4">
     <div class="d-flex justify-content-between">
-    <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-      Categories
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-      <li><a class="dropdown-item" href="/pets/dog">Dogs</a></li>
-      <li><a class="dropdown-item" href="/pets/cat">Cats</a></li>
-      <li><a class="dropdown-item" href="/pets/fish">Fish</a></li>
-      <li><a class="dropdown-item" href="/pets/bird">Birds</a></li>
-    </ul>
-    <%= link_to "All pets", all_pets_path, class: "btn btn-success me-4" %>
+      <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        Categories
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" href="/pets/dog">Dogs</a></li>
+        <li><a class="dropdown-item" href="/pets/cat">Cats</a></li>
+        <li><a class="dropdown-item" href="/pets/fish">Fish</a></li>
+        <li><a class="dropdown-item" href="/pets/bird">Birds</a></li>
+      </ul>
+      <%= link_to "All pets", all_pets_path, class: "btn btn-success me-4" %>
     </div>
   </div>
+</div>
 
-
-  <%= render 'card' %>
+<%= render 'card' %>
 
 <div class="container3">
-      <div style="width: 100%; height: 600px;"
-  data-controller="mapbox"
-  data-mapbox-markers-value="<%= @markers.to_json %>"
-  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  <div style="width: 100%; height: 600px;"
+    data-controller="mapbox"
+    data-mapbox-markers-value="<%= @markers.to_json %>"
+    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>
