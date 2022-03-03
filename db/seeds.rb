@@ -7,13 +7,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
+p "Deleting previous data..."
 # destroy data
 User.destroy_all if Rails.env == 'development'
+Pet.destroy_all if Rails.env == 'development'
 
 p "Seeding data.."
 
-# add data
-10.times do
+# add user data
+20.times do
   User.create(
     email: Faker::Internet.email,
     first_name: Faker::Name.first_name,
@@ -22,17 +24,18 @@ p "Seeding data.."
   )
 end
 
-p "Created #{User.count} users."
+p "Created #{User.count} users..."
 
-10.times do
+# add pet data
+150.times do
   Pet.create(
     location: Faker::Address.city,
     price: rand(10...100),
     description: Faker::Food.description,
-    user_id: rand(1..10),
-    category: ["Dogs", "Cats", "Fish", "Reptiles", "Others"].sample,
+    user_id: rand(132..142),
+    category: ['Dogs', 'Cats', 'Fish', 'Reptiles', 'Birds'].sample,
     name: Faker::Artist.name
   )
 end
 
-p "Created #{Pet.count} pets."
+p "Created #{Pet.count} pets.."
