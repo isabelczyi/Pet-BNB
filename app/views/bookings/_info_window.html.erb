@@ -1,4 +1,4 @@
 <%= link_to pet_path(pet) do %>
-<h5><%= pet.name %></h5>
-<%= cl_image_tag pet.photos[0].key, class: "d-block w-100", crop: :fill, style:"object-fit: cover; height: 50px;" %>
+  <h5><%= pet.name %></h5>
+  <%= cl_image_tag pet.photos[0].key, class: "d-block w-100", crop: :fill, style:"object-fit: cover; height: 50px;" %>
 <% end %>
