@@ -2,12 +2,6 @@ class PetsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :dog, :cat, :fish, :reptile, :bird, :all, :show]
 
   def index
-    # @markers = @pets.geocoded.map do |pet|
-    #   {
-    #     lat: pet.latitude,
-    #     lng: pet.longitude
-    #   }
-    # end
     @pets = policy_scope(Pet).order(created_at: :desc)
   end
 
@@ -59,6 +53,12 @@ class PetsController < ApplicationController
   def show
     @pet = Pet.find(params[:id])
     authorize @pet
+    @markers =[
+      {
+        lat: @pet.latitude,
+        lng: @pet.longitude
+      }]
+
   end
 
   def edit
