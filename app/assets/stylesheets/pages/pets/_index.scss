@@ -3,25 +3,60 @@
   padding: 2px, 2px, 2px, 2px;
 }
 
+.banner-img {
+  width: 100vw;
+  object-fit: cover;
+  opacity: 0.75;
+  box-shadow: 0px 8px 8px rgb(181, 180, 180);
+  margin-bottom: 8px;
+  // border-bottom: 1px solid grey;
+}
+
 .card2 {
   height: 150px;
   width: 250px;
-  margin: 8px;
+  opacity: 0.9;
+  text-align: center;
+  position: relative;
+}
+
+.text-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: large;
+  // font-weight: bold;
+}
+
+.card2:hover {
+  opacity: 1;
 }
 
 .card-img {
-  height: 150px;
-  width: 250px;
-  margin: 8px;
-}
-
-.card-img-overlay {
-  height: 150px;
-  width: 250px;
-  margin: 8px;
+  height: 140px;
+  width: 240px;
+  padding: 4px;
+  // object-fit: cover;
 }
 
 .card-title2 {
   color: white;
   text-shadow: 1px 1px grey;
+}
+
+.cards-container {
+  margin-left: 8px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  // // display: flex;
+  // justify-content: center;
+  // flex-direction: row;
+}
+
+h4 {
+  font-size: medium;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+  // opacity: 0.75;
 }
