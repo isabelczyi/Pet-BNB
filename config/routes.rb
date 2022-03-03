@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       get :fish
       get :reptile
       get :bird
+      get :all
     end
     resources :bookings, only: [:new , :create]
   end
