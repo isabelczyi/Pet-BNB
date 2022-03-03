@@ -12,10 +12,6 @@
   // border-bottom: 1px solid grey;
 }
 
-.banner-img::after {
-  background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1));
-}
-
 .card2 {
   height: 150px;
   width: 250px;
@@ -52,6 +48,10 @@
 .cards-container {
   margin-left: 8px;
   margin-right: 8px;
+  margin-bottom: 8px;
+  // // display: flex;
+  // justify-content: center;
+  // flex-direction: row;
 }
 
 h4 {
