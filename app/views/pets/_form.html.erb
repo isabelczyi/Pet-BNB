@@ -1,20 +1,29 @@
 <div class="containter mt-5">
   <div class="row justify-content-center">
     <div class="col-6">
-      <%= simple_form_for @pet do |f| %>
-
         <% if action_name == 'new'%>
           <h1 class="mt-2">Add a new pet</h1>
         <% elsif action_name == 'edit'%>
             <h1 class="mt-2">Edit details of <%= @pet.name %></h1>
         <%end%>
+      <%= simple_form_for @pet do |f| %>
 
+        <div class="form-inputs">
         <%= f.input :name %>
         <%= f.input :category, collection: ["Dogs", "Cats", "Fish", "Reptiles", "Birds"]  %>
-        <%= f.input :location %>
+          <% if action_name == 'edit'%>
+              <%= f.input :address, label: 'Leave this blank if there are no changes',
+                input_html: { data: { geocoder_target: "address" }, class: "d-none mapboxgl-ctrl-geocoder" },
+                wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } } %>
+            <% else %>
+            <%= f.input :address,
+                input_html: { data: { geocoder_target: "address" }, class: "d-none mapboxgl-ctrl-geocoder" },
+                wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } } %>
+            <% end %>
         <%= f.input :price %>
         <%= f.input :photos, as: :file, input_html: { multiple: true } %>
         <%= f.input :description %>
+      </div>
         <%= f.submit "Submit pet", class: "btn btn-success" %>
         <%= link_to "Cancel", :back, class: "btn btn-success" %>
       <% end %>

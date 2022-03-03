@@ -44,7 +44,7 @@
         <h5 class="card-title"><%= pet.name %></h5><br>
         <h5 class="card-title">$<%= number_with_precision(pet.price, precision: 2) %>/hr</h5>
         </div>
-        <p class="card-text"><%= pet.location %></p>
+        <p class="card-text"><%= pet.address %></p>
 
       <% if user_signed_in? %>
          <% if current_user.pets.include?(pet) %>
