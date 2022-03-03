@@ -38,7 +38,7 @@ class PetPolicy < ApplicationPolicy
     true
   end
 
-  def others?
+  def bird?
     true
   end
 end

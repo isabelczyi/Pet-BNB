@@ -36,8 +36,8 @@ class PetsController < ApplicationController
     authorize @pets
   end
 
-  def others
-    @pets = Pet.where("category = 'Others'")
+  def bird
+    @pets = Pet.where("category = 'Birds'")
     authorize @pets
   end
 
