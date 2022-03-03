@@ -1,6 +1,9 @@
 <%= simple_form_for [ @pet, @booking ] do |f| %>
   <%= f.input :check_in %>
   <%= f.input :check_out %>
+  <% if current_user.pets.include?(@booking.pet) %>
+    <%= f.input :status, collection: ["Accepted", "Rejected"] %>
+  <% end %>
   <%= f.submit "Update booking!", class: "btn btn-success" %>
   <%= link_to 'Go Back', :back, class: "btn btn-success" %>
 <% end %>
