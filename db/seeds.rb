@@ -9,10 +9,11 @@ require 'faker'
 
 # destroy data
 User.destroy_all if Rails.env == 'development'
+Pet.destroy_all if Rails.env == 'development'
 
 p "Seeding data.."
 
-# add data
+# add user data
 10.times do
   User.create(
     email: Faker::Internet.email,
@@ -24,13 +25,14 @@ end
 
 p "Created #{User.count} users."
 
+# add pet data
 10.times do
   Pet.create(
     location: Faker::Address.city,
     price: rand(10...100),
     description: Faker::Food.description,
     user_id: rand(1..10),
-    category: ["Dogs", "Cats", "Fish", "Reptiles", "Others"].sample,
+    category: ['Dogs', 'Cats', 'Fish', 'Reptiles', 'Birds'].sample,
     name: Faker::Artist.name
   )
 end
