@@ -18,7 +18,11 @@
             <%= link_to "Browse pets", pets_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
-            <%= cl_image_tag current_user.photo.key, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% if current_user.photo.exists? %>
+              <%= cl_image_tag current_user.photo.key, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% else %>
+                <%= image_tag "https://miro.medium.com/max/720/1*W35QUSvGpcLuxPo3SRTH4w.png", crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "My dashboard", root_path, class: "dropdown-item" %>
               <%= link_to "Add pets", new_pet_path, class: "dropdown-item" %>
