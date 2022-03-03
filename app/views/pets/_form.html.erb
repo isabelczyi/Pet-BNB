@@ -8,13 +8,17 @@
         <% elsif action_name == 'edit'%>
             <h1 class="mt-2">Edit details of <%= @pet.name %></h1>
         <%end%>
-
+        <div class="form-inputs">
         <%= f.input :name %>
         <%= f.input :category, collection: ["Dogs", "Cats", "Fish", "Reptiles", "Birds"]  %>
-        <%= f.input :location %>
+
+              <%= f.input :location,
+                input_html: { data: { geocoder_target: "address" }, class: "d-none mapboxgl-ctrl-geocoder" },
+                wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } } %>
         <%= f.input :price %>
         <%= f.input :photos, as: :file, input_html: { multiple: true } %>
         <%= f.input :description %>
+      </div>
         <%= f.submit "Submit pet", class: "btn btn-success" %>
         <%= link_to "Cancel", :back, class: "btn btn-success" %>
       <% end %>

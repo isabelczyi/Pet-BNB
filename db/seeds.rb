@@ -31,7 +31,7 @@ require "open-uri"
 3.times do
   file = URI.open('https://source.unsplash.com/random/?dog')
   pet = Pet.new(
-    location: Faker::Address.city,
+    # location: Faker::Address.city,
     price: rand(10...100),
     description: Faker::Food.description,
     user_id: rand(81..85),
@@ -47,7 +47,7 @@ end
 3.times do
   file = URI.open('https://source.unsplash.com/random/?cat')
   pet = Pet.new(
-    location: Faker::Address.city,
+    # location: Faker::Address.city,
     price: rand(10...100),
     description: Faker::Food.description,
     user_id: rand(81..85),
@@ -63,7 +63,7 @@ end
 3.times do
   file = URI.open('https://source.unsplash.com/random/?fish')
   pet = Pet.new(
-    location: Faker::Address.city,
+    # location: Faker::Address.city,
     price: rand(10...100),
     description: Faker::Food.description,
     user_id: rand(81..85),
@@ -79,7 +79,7 @@ end
 3.times do
   file = URI.open('https://source.unsplash.com/random/?reptile')
   pet = Pet.new(
-    location: Faker::Address.city,
+    # location: Faker::Address.city,
     price: rand(10...100),
     description: Faker::Food.description,
     user_id: rand(81..85),
@@ -95,7 +95,7 @@ end
 3.times do
   file = URI.open('https://source.unsplash.com/random/?bird')
   pet = Pet.new(
-    location: Faker::Address.city,
+    # location: Faker::Address.city,
     price: rand(10...100),
     description: Faker::Food.description,
     user_id: rand(81..85),
