@@ -1,1 +1,14 @@
-<%= render 'form' %>
+<div class="containter mt-5">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <div style="background-color: white" class="mt-3 p-3 rounded-top">
+        <% if action_name == 'new'%>
+          <h3 class="mt-2">Add a new pet</h1>
+        <% elsif action_name == 'edit'%>
+            <h1 class="mt-2">Edit details of <%= @pet.name %></h1>
+        <%end%>
+          <%= render 'form' %>
+        </div>
+    </div>
+  </div>
+</div>
