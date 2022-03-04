@@ -1,6 +1,7 @@
 <div class="d-flex  justify-content-evenly flex-wrap mt-3">
     <% @pets.each do |pet| %>
         <div class="card m-2" style="width: 16rem;">
+
             <% if !pet.photos.empty? %>
               <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
@@ -9,10 +10,12 @@
                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<%= i %>" aria-label="Slide <%= i %>"></button>
                   <% end %>
                 </div>
+
                 <div class="carousel-inner">
                   <a href="/pets/<%= pet.id %>">
                     <div class="carousel-item active">
                       <%= cl_image_tag pet.photos[0].key, class: "d-block w-100", crop: :fill, style: "object-fit: cover; height: 200px;" %>
+
                     </div>
                     <% if pet.photos.count > 1 %>
                       <% pet.photos[1..].each do |photo| %>
@@ -21,8 +24,7 @@
                         </div>
                       <% end %>
                     <% end %>
-                  </a>
-                </div>
+                   </a>
                 <% if pet.photos.count > 1 %>
                   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -33,8 +35,11 @@
                     <span class="visually-hidden">Next</span>
                   </button>
                 <% end %>
+                </div>
+
               </div>
             <% end %>
+
             <div class="card-body">
                 <%= link_to pet_path(pet) do %>
                   <div class="d-flex justify-content-between">
@@ -66,6 +71,8 @@
                                       </svg>
                           <% end %>
                       </div>
+                    <% else %>
+                      <%= link_to "Book now", new_pet_booking_path(pet), class: "btn btn-success" %>
                     <% end %>
                 <% else %>
                   <%= link_to "Book now", new_pet_booking_path(pet), class: "btn btn-success" %>
