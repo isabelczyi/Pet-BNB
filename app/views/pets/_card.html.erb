@@ -1,81 +1,76 @@
-
-
 <div class="d-flex  justify-content-evenly flex-wrap mt-3">
-
     <% @pets.each do |pet| %>
-
-    <div class="card m-2" style="width: 16rem;">
-      <% if !pet.photos.empty? %>
-    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <% (1..pet.photos.count - 1).each do |i| %>
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<%= i %>" aria-label="Slide <%= i %>"></button>
-      <% end %>
-      </div>
-      <div class="carousel-inner">
-      <a href="/pets/<%= pet.id %>">
-      <div class="carousel-item active">
-        <%= cl_image_tag pet.photos[0].key, class: "d-block w-100", crop: :fill, style: "object-fit: cover; height: 200px;" %>
-      </div>
-      <% if pet.photos.count > 1 %>
-        <% pet.photos[1..].each do |photo| %>
-          <div class="carousel-item">
-          <%= cl_image_tag photo.key, class: "d-block w-100", crop: :fill, style: "object-fit:cover, height: 200px;"  %>
-          </div>
-        <% end %>
-      <% end %>
-      </a>
-      </div>
-      <% if pet.photos.count > 1 %>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-      <% end %>
-    </div>
-  <% end %>
-  <%= link_to pet_path(pet) do %>
-      <div class="card-body">
-      <div class="d-flex justify-content-between">
-
-        <h5 class="card-title"><%= pet.name %></h5><br>
-        <h5 class="card-title">$<%= number_with_precision(pet.price, precision: 2) %>/hr</h5>
+        <div class="card m-2" style="width: 16rem;">
+            <% if !pet.photos.empty? %>
+              <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <% (1..pet.photos.count - 1).each do |i| %>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<%= i %>" aria-label="Slide <%= i %>"></button>
+                  <% end %>
+                </div>
+                <div class="carousel-inner">
+                  <a href="/pets/<%= pet.id %>">
+                    <div class="carousel-item active">
+                      <%= cl_image_tag pet.photos[0].key, class: "d-block w-100", crop: :fill, style: "object-fit: cover; height: 200px;" %>
+                    </div>
+                    <% if pet.photos.count > 1 %>
+                      <% pet.photos[1..].each do |photo| %>
+                        <div class="carousel-item">
+                        <%= cl_image_tag photo.key, class: "d-block w-100", crop: :fill, style: "object-fit:cover, height: 200px;"  %>
+                        </div>
+                      <% end %>
+                    <% end %>
+                  </a>
+                </div>
+                <% if pet.photos.count > 1 %>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                <% end %>
+              </div>
+            <% end %>
+            <div class="card-body">
+                <%= link_to pet_path(pet) do %>
+                  <div class="d-flex justify-content-between">
+                    <h5 class="card-title"><%= pet.name %></h5><br>
+                    <h5 class="card-title">$<%= number_with_precision(pet.price, precision: 2) %>/hr</h5>
+                  </div>
+                  <p class="card-text mb-3"><%= pet.address %></p>
+                <% end %>
+                <% if user_signed_in? %>
+                    <% if current_user.pets.include?(pet) %>
+                      <div class="d-flex justify-content-end">
+                          <%= link_to edit_pet_path(pet) do %>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                              <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
+                              <line x1="13.5 y1=6.5 x2=17.5 y2=10.5" />
+                            </svg>
+                          <% end %>
+                          <%= link_to pet_path(pet),
+                                    method: :delete, class: "pe-2",
+                                    data: { confirm: "Are you sure?" } do %>
+                                      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <line x1="4" y1="7" x2="20" y2="7" />
+                                        <line x1="10" y1="11" x2="10" y2="17" />
+                                        <line x1="14" y1="11" x2="14" y2="17" />
+                                        <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                                        <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                                      </svg>
+                          <% end %>
+                      </div>
+                    <% end %>
+                <% else %>
+                  <%= link_to "Book now", new_pet_booking_path(pet), class: "btn btn-success" %>
+                <% end %>
+            </div>
         </div>
-        <p class="card-text mb-3"><%= pet.address %></p>
-      <% end %>
-      <% if user_signed_in? %>
-         <% if current_user.pets.include?(pet) %>
-         <div class="d-flex justify-content-end">
-          <%= link_to edit_pet_path(pet) do%>
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
-              <line x1="13.5 y1=6.5 x2=17.5 y2=10.5" /></svg>
-            <% end %>
-            <%= link_to pet_path(pet),
-                    method: :delete, class: "pe-2",
-                    data: { confirm: "Are you sure?" } do%>
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <line x1="4" y1="7" x2="20" y2="7" />
-              <line x1="10" y1="11" x2="10" y2="17" />
-              <line x1="14" y1="11" x2="14" y2="17" />
-              <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
-              <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
-            </svg>
-            <% end %>
-         <% end %>
-         </div>
-         <% else %>
-         <%= link_to "Book now", new_pet_booking_path(pet), class: "btn btn-success" %>
-        <% end %>
-      </div>
-    </div>
-
     <% end %>
 </div>
