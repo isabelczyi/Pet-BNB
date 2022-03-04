@@ -1,4 +1,4 @@
- <div class="container mt-5">
+<div class="container mt-5">
   <div class="text-align-centre">
    <h1 class="pt-3">Hello <%=current_user.first_name%></h1>
   </div>
@@ -8,146 +8,145 @@
       <%= link_to "Add a new pet", new_pet_path, class: "btn btn-success" %>
     <% end %>
   </div>
-  <% if !current_user.pets.empty?%>
   <div class="mt-2 mb-2">
     <h3>Your pets</h3>
-    <div class="d-flex justify-content-start flex-wrap">
-      <% current_user.pets.each do |pet| %>
-      <div class="card m-2" style="width: 12rem;">
-        <a href="/pets/<%= pet.id %>">
-          <% if !pet.photos.empty? %>
-    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <% (1..pet.photos.count - 1).each do |i| %>
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<%= i %>" aria-label="Slide <%= i %>"></button>
-        <% end %>
-      </div>
-      <div class="carousel-inner">
-      <div class="carousel-item active">
-        <%= cl_image_tag pet.photos[0].key, class: "d-block w-100", crop: :fill %>
-      </div>
-      <% if pet.photos.count > 1 %>
-        <% pet.photos[1..].each do |photo| %>
-          <div class="carousel-item">
-          <%= cl_image_tag photo.key, class: "d-block w-100", crop: :fill %>
-          </div>
-        <% end %>
-      <% end %>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-  <% end %>
-        <div class="card-body">
-          <h5 class="pet-name"><%= pet.name %></h5><br>
-          <div>
-          </a>
-          <div class="your-bookings-options">
-            <%= link_to edit_pet_path(pet) do %>
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
-              <line x1="13.5 y1=6.5 x2=17.5 y2=10.5" /></svg>
-            <% end %>
-            <%= link_to pet_path(pet),
-                    method: :delete, class: "pe-2",
-                    data: { confirm: "Are you sure?" } do %>
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <line x1="4" y1="7" x2="20" y2="7" />
-              <line x1="10" y1="11" x2="10" y2="17" />
-              <line x1="14" y1="11" x2="14" y2="17" />
-              <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
-              <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
-            </svg>
-            <% end %>
-            </div>
-          </div>
-        </div>
-    </div>
-      <% end %>
-  </div>
-</div>
-<% end %>
-
-  <% if !current_user.bookings.empty? %>
-    <div class="bookings-list mb-2">
-      <h3>Your bookings</h3>
-      <div class="mt-3">
-        <div class="d-flex justify-content-start flex-wrap">
-          <% current_user.bookings.each do |booking| %>
+    <% if !current_user.pets.empty?%>
+      <div class="d-flex justify-content-start flex-wrap">
+        <% current_user.pets.each do |pet| %>
           <div class="card m-2" style="width: 12rem;">
+            <a href="/pets/<%= pet.id %>">
+            <% if !pet.photos.empty? %>
+              <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <% (1..pet.photos.count - 1).each do |i| %>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<%= i %>" aria-label="Slide <%= i %>"></button>
+                  <% end %>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <%= cl_image_tag pet.photos[0].key, class: "d-block w-100", crop: :fill %>
+                  </div>
+                  <% if pet.photos.count > 1 %>
+                    <% pet.photos[1..].each do |photo| %>
+                      <div class="carousel-item">
+                        <%= cl_image_tag photo.key, class: "d-block w-100", crop: :fill %>
+                      </div>
+                    <% end %>
+                  <% end %>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+            <% end %>
+            </a>
             <div class="card-body">
-              <a href="/bookings/<%= booking.id %>"><h5 class="card-title">Booking for <%= booking.pet.name %></h5></a>
-              <p class="card-text">Status: <%= booking.status %></p>
-              <p class="card-text"> <%= booking.check_in.strftime("%H:%M, %d %b %Y %Z") %></p>
-              <p class="card-text">  <%= booking.check_out.strftime("%H:%M, %d %b %Y %Z") %></p>
-            </div>
-            <div class="your-bookings-options">
-              <%= link_to edit_booking_path(booking) do %>
+              <h5 class="pet-name"><%= link_to pet.name %></h5><br>
+              <div class="your-bookings-options">
+                <%= link_to edit_pet_path(pet) do %>
                   <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                     <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
-                    <line x1="13.5 y1=6.5 x2=17.5 y2=10.5" />
-                  </svg>
-              <% end %>
-              <%= link_to booking_path(booking),
-                        method: :delete, class: "pe-2 pb-2",
+                    <line x1="13.5 y1=6.5 x2=17.5 y2=10.5" /></svg>
+                <% end %>
+                <%= link_to pet_path(pet),
+                        method: :delete, class: "pe-2",
                         data: { confirm: "Are you sure?" } do %>
-                          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                            <line x1="4" y1="7" x2="20" y2="7" />
-                            <line x1="10" y1="11" x2="10" y2="17" />
-                            <line x1="14" y1="11" x2="14" y2="17" />
-                            <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
-                            <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
-                          </svg>
-                        <% end %>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="4" y1="7" x2="20" y2="7" />
+                    <line x1="10" y1="11" x2="10" y2="17" />
+                    <line x1="14" y1="11" x2="14" y2="17" />
+                    <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                    <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                  </svg>
+                <% end %>
+              </div>
             </div>
           </div>
-            <% end %>
-        </div>
+        <% end %>
       </div>
-    </div>
-  <% end %>
-
-  <% if !current_user.pets.empty? %>
-    <% current_user.pets.each do |pet| %>
-      <% if !pet.bookings.empty? %>
-        <div class="bookings-list mb-2">
-          <h3>Bookings for your pet</h3>
-          <div class="mt-3">
-            <div class="d-flex justify-content-start flex-wrap">
-              <% pet.bookings.each do |booking| %>
-                <div class="card m-2" style="width: 12rem;">
-                        <div class="card-body">
-                          <a href="/bookings/<%= booking.id %>"><h5 class="card-title">Booking for <%= booking.pet.name %></h5></a>
-                          <p class="card-text">Status: <%= booking.status %></p>
-                          <p class="card-text"> <%= booking.check_in.strftime("%H:%M, %d %b %Y %Z") %></p>
-                          <p class="card-text">  <%= booking.check_out.strftime("%H:%M, %d %b %Y %Z") %></p>
-                        </div>
-                      <div class="your-bookings-options">
-                        <%= link_to edit_booking_path(booking) do %>
-                          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                            <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
-                            <line x1="13.5 y1=6.5 x2=17.5 y2=10.5" />
-                          </svg>
-                        <% end %>
-                      </div>
-                </div>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      <% end %>
+    <% else %>
+      <h4 class="p-5">You have no pets (yet).</h4>
     <% end %>
-  <% end %>
+  </div>
+  <div class="mt-2 mb-2">
+    <h3>Your bookings</h3>
+    <% if !current_user.bookings.empty? %>
+      <div class="bookings-list mb-2">
+          <div class="d-flex justify-content-start flex-wrap">
+            <% current_user.bookings.each do |booking| %>
+              <div class="card m-2" style="width: 12rem;">
+                <div class="card-body">
+                  <a href="/bookings/<%= booking.id %>"><h5 class="card-title">Booking for <%= booking.pet.name %></h5></a>
+                  <p class="card-text">Status: <%= booking.status %></p>
+                  <p class="card-text"> <%= booking.check_in.strftime("%H:%M, %d %b %Y %Z") %></p>
+                  <p class="card-text">  <%= booking.check_out.strftime("%H:%M, %d %b %Y %Z") %></p>
+                  <div class="your-bookings-options">
+                    <%= link_to edit_booking_path(booking) do %>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                          <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
+                          <line x1="13.5 y1=6.5 x2=17.5 y2=10.5" />
+                        </svg>
+                    <% end %>
+                    <%= link_to booking_path(booking),
+                              method: :delete, class: "pe-2 pb-2",
+                              data: { confirm: "Are you sure?" } do %>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                  <line x1="4" y1="7" x2="20" y2="7" />
+                                  <line x1="10" y1="11" x2="10" y2="17" />
+                                  <line x1="14" y1="11" x2="14" y2="17" />
+                                  <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                                  <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                                </svg>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+      </div>
+    <% else %>
+     <h4 class="p-5">You haven't made any bookings (yet).</h4>
+    <% end %>
+  </div>
+  <div class="mt-2 mb-2">
+    <h3>Bookings for your pet</h3>
+    <% if !current_user.pets.empty? %>
+      <% current_user.pets.each do |pet| %>
+        <% if !pet.bookings.empty? %>
+          <div class="d-flex justify-content-start flex-wrap">
+            <% pet.bookings.each do |booking| %>
+              <div class="card m-2" style="width: 12rem;">
+                <div class="card-body">
+                  <a href="/bookings/<%= booking.id %>"><h5 class="card-title">Booking for <%= booking.pet.name %></h5></a>
+                  <p class="card-text">Status: <%= booking.status %></p>
+                  <p class="card-text"> <%= booking.check_in.strftime("%H:%M, %d %b %Y %Z") %></p>
+                  <p class="card-text">  <%= booking.check_out.strftime("%H:%M, %d %b %Y %Z") %></p>
+                  <div class="your-bookings-options">
+                    <%= link_to edit_booking_path(booking) do %>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
+                        <line x1="13.5 y1=6.5 x2=17.5 y2=10.5" />
+                      </svg>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    <% else %>
+      <h4 class="p-5">No one has booked your pets (yet).</h4>
+    <% end %>
+  </div>
 </div>

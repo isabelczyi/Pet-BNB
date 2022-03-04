@@ -18,12 +18,16 @@
   </div>
 </div>
 
-<%= render 'card' %>
 
-<div class="container-xxl">
-  <div class="" style="width: 100%; height: 600px;"
-    data-controller="mapbox"
-    data-mapbox-markers-value="<%= @markers.to_json %>"
-    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
- </div>
-</div>
+<% if @pets.empty?%>
+  <h4> Sorry, there are currently no pets to rent! <h4>
+<% else %>
+  <%= render 'card' %>
+  <div class="container-xxl">
+    <div class="" style="width: 100%; height: 600px;"
+      data-controller="mapbox"
+      data-mapbox-markers-value="<%= @markers.to_json %>"
+      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
+<% end %>

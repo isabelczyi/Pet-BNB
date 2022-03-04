@@ -1,28 +1,25 @@
-<div class="mt-5"><br></div>
-<%# page container %>
-<div>
-  <%# container #1 %>
-  <div class="container3">
-    <%# card #1 %>
-    <div class="card2">
-      <a href="/pets/dog"><img class="card-img" src="https://images.hindustantimes.com/rf/image_size_630x354/HT/p2/2018/09/12/Pictures/happy-golden-retriever-puppy_48da2e54-b6b4-11e8-bbaf-ff4d73ce44e3.jpg" alt="Card image">
-        <div class="text-card"><h4>Dogs</h4></div>
-      </a>
-    </div>
-    <%# card #2 %>
-    <div class="card2">
-      <a href="/pets/cat"><img class="card-img" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/best-boy-cat-names-1606242656.jpg" alt="Card image">
-        <div class="text-card"><h4>Cats</h4></div>
-      </a>
-    </div>
-    <%# card #3 %>
-    <div class="card2">
-      <a href="/pets/fish"><img class="card-img" src="https://images.unsplash.com/photo-1578507065211-1c4e99a5fd24?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Card image">
-        <div class="text-card"><h4>Fish</h4></div>
-      </a>
-    </div>
+<div class="mt-5"><br>
+</div>
+<div class="container3">
+  <%# card #1 %>
+  <div class="card2">
+    <a href="/pets/dog"><img class="card-img" src="https://images.hindustantimes.com/rf/image_size_630x354/HT/p2/2018/09/12/Pictures/happy-golden-retriever-puppy_48da2e54-b6b4-11e8-bbaf-ff4d73ce44e3.jpg" alt="Card image">
+      <div class="text-card"><h4>Dogs</h4></div>
+    </a>
   </div>
-
+  <%# card #2 %>
+  <div class="card2">
+    <a href="/pets/cat"><img class="card-img" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/best-boy-cat-names-1606242656.jpg" alt="Card image">
+      <div class="text-card"><h4>Cats</h4></div>
+    </a>
+  </div>
+  <%# card #3 %>
+  <div class="card2">
+    <a href="/pets/fish"><img class="card-img" src="https://images.unsplash.com/photo-1578507065211-1c4e99a5fd24?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Card image">
+      <div class="text-card"><h4>Fish</h4></div>
+    </a>
+  </div>
+ </div>
   <%# container #2 %>
   <div class="container3">
     <%# card #4 %>
@@ -43,14 +40,14 @@
         <div class="text-card"><h4> All pets </h4></div>
       </a>
     </div>
-  </div>
 </div>
 
-<%# mapbox %>
-<div class="container-xxl">
-  <div style="width: 100%; height: 600px;"
-    data-controller="mapbox"
-    data-mapbox-markers-value="<%= @markers.to_json %>"
-    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+<% if @pets.exists?%>
+  <div class="container-xxl">
+    <div style="width: 100%; height: 600px;"
+      data-controller="mapbox"
+      data-mapbox-markers-value="<%= @markers.to_json %>"
+      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
   </div>
-</div>
+<% end %>
