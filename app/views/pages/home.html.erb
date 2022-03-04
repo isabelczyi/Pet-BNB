@@ -1,3 +1,19 @@
+<% if user_signed_in? %>
+  <%= render 'dashboard' %>
+<% else %>
+  <div class="split left" style="text-align: center;">
+    <div class="background" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(https://images.unsplash.com/photo-1560743173-567a3b5658b1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80)">
+    </div>
+    <div class="split right">
+      <div class="centered">
+        <h1 class="text-center">Pet Rentals</h1>
+        <p class="text-center">Change your life and rent a pet.</p>
+        <%= link_to "Sign up", new_user_registration_path, class: "btn btn-success" %>
+        <%= link_to "Browse pets", pets_path, class: "btn btn-success" %>
+      </div>
+    </div>
+  </div>
+<% end %>
 
 <%#
 <div class="container">
@@ -20,24 +36,3 @@
         </div>
     </div>
 </div> %>
-
-<% if user_signed_in? %>
-
-  <%= render 'dashboard' %>
-
-<% else %>
-  <div class="split left" style="text-align: center;">
-    <div class="background" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(https://images.unsplash.com/photo-1560743173-567a3b5658b1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80)">
-
-    </div>
-
-  <div class="split right">
-    <div class="centered">
-          <h1 class="text-center">Pet Rentals</h1>
-      <p class="text-center">Change your life and rent a pet.</p>
-      <%= link_to "Sign up", new_user_registration_path, class: "btn btn-success" %>
-      <%= link_to "Browse pets", pets_path, class: "btn btn-success" %>
-    </div>
-  </div>
-  </div>
-<% end %>
