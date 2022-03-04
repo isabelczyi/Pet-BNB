@@ -1,5 +1,4 @@
 <div class="mt-5"><br>
-</div>
 
 <div class="mt-2">
   <%# <h1 class="text-center">Pet Rentals</h1> %>
@@ -20,12 +19,15 @@
   </div>
 </div>
 
-<%= render 'card' %>
-
-<div class="container-xxl">
-  <div style="width: 100%; height: 600px;"
-    data-controller="mapbox"
-    data-mapbox-markers-value="<%= @markers.to_json %>"
-    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+<% if @pets.empty?%>
+  <h4 class="mt-5 ms-3"> Sorry, there are currently no 🐈‍⬛ to rent ! <h4>
+<% else %>
+  <%= render 'card' %>
+  <div class="container-xxl">
+    <div class="" style="width: 100%; height: 600px;"
+      data-controller="mapbox"
+      data-mapbox-markers-value="<%= @markers.to_json %>"
+      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
   </div>
-</div>
+<% end %>
