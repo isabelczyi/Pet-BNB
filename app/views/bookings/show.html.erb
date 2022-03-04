@@ -1,5 +1,4 @@
-<div class="mt-5">
-</div>
+<div class="mt-5"></div>
 
 <div class="flex-container">
   <%# <div style="border:3px; border-style:solid; border-color:#FF0000; padding: 1em;"> %>
@@ -37,19 +36,11 @@
     <%= link_to "⬅ Return to dashboard", root_path, class: "btn btn-success"  %>
     <%= link_to "🔍 Search another pet", pets_path, class: "btn btn-success"  %>
   </div>
-  <%# <div style="border:1px; border-style:solid; border-color:black; padding: 1em;"> %>
 
-  <div style="width: 100%; height: 600px;"
+  <%# mapbox %>
+  <div style="width: 35%; height: 400px;"
     data-controller="mapbox"
     data-mapbox-markers-value="<%= @markers.to_json %>"
     data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-  <%# <img src="https://media.istockphoto.com/photos/melbourne-marked-on-map-with-red-pushpin-picture-id183936817?k=20&m=183936817&s=170667a&w=0&h=Xu_rwfSem6m55BnVIXSJQV8mpzTeqIieMkihUtayOa4=" alt="map with pin"> %>
-  <%# </div> %>
 </div>
-
-<%# <div style="width: 300%; height: 300px;"
-  data-controller="mapbox"
-  data-mapbox-markers-value="<%= @markers.to_json %>
-  <%# data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>
-  <%# </div> %>
