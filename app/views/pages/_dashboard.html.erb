@@ -118,8 +118,8 @@
     <% end %>
   </div>
   <div class="mt-2 mb-2">
-    <h3>Bookings for your pet</h3>
     <% if !current_user.pets.empty? %>
+    <h3>Bookings for your pet</h3>
       <% current_user.pets.each do |pet| %>
         <% if !pet.bookings.empty? %>
           <div class="d-flex justify-content-start flex-wrap">
